@@ -77,7 +77,7 @@ jobs:
 workflows:
   version: 2
   jobs:
-    build
+    - build
   ci-bundle-update:
     triggers:
       - schedule:
