@@ -76,15 +76,17 @@ jobs:
             circleci-bundle-update-pr
 workflows:
   version: 2
-  build-and-bundleupdate:
+  build:
     jobs:
-      - ci-bundle-update:
-        triggers:
-          - schedule:
-              cron: "0 * * * 1-5"  # debug
-              # cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
-              filters:
-                branches:
-                  only:
-                    - develop # developだけで実行
       - build
+  bundleupdate:
+    jobs:
+      - ci-bundle-update
+    triggers:
+      - schedule:
+          cron: "0 * * * 1-5"  # debug
+          # cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
+          filters:
+            branches:
+              only:
+                - develop # developだけで実行
