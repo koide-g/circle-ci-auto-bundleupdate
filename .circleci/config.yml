@@ -79,8 +79,8 @@ workflows:
   build-and-bundleupdate:
     jobs:
       - ci-bundle-update:
-          triggers:
-            - schedule:
+        triggers:
+          - schedule:
               cron: "0 * * * 1-5"  # debug
               # cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
               filters:
