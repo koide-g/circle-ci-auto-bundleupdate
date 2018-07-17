@@ -78,7 +78,6 @@ workflows:
   version: 2
   normal-build:
     jobs:
-      - build
       - ci-bundle-update:
           triggers:
             - schedule:
@@ -88,3 +87,4 @@ workflows:
                   branches:
                     only:
                       - develop # developだけで実行
+      - build
