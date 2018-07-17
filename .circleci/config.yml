@@ -76,8 +76,9 @@ jobs:
             circleci-bundle-update-pr
 workflows:
   version: 2
-  jobs:
-    - build
+  normal-build:
+    jobs:
+      - build
   ci-bundle-update:
     triggers:
       - schedule:
