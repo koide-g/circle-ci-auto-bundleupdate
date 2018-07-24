@@ -46,24 +46,23 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # run tests!
-      # - run:
-      #     name: run tests
-      #     command: |
-      #       mkdir /tmp/test-results
-      #       TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-      #
-      #       bundle exec rspec --format progress \
-      #                       --format RspecJunitFormatter \
-      #                       --out /tmp/test-results/rspec.xml \
-      #                       --format progress \
-      #                       $TEST_FILES
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+
+            bundle exec rspec --format progress \
+                              --out /tmp/test-results/rspec.xml \
+                              --format progress \
+                              $TEST_FILES
 
       # collect reports
-      # - store_test_results:
-      #     path: /tmp/test-results
-      # - store_artifacts:
-      #     path: /tmp/test-results
-      #     destination: test-results
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
   
   ci-bundle-update:
     docker:
@@ -95,8 +94,8 @@ workflows:
       - ci-bundle-update
     triggers:
       - schedule:
-          cron: "0,15,30 * * * 1-5"  # debug
-          # cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
+          # cron: "0,15,30 * * * 1-5"  # debug
+          cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
           filters:
             branches:
               only:
