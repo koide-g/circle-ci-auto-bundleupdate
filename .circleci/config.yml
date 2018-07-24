@@ -86,9 +86,9 @@ jobs:
             command: circleci-bundle-update-pr CircleCI koide-g+circleci@acaric.co.jp $CIRCLE_BRANCH
 workflows:
   version: 2
-  # build:
-  #   jobs:
-  #     - build
+  build:
+    jobs:
+      - build
   bundleupdate:
     jobs:
       - ci-bundle-update
