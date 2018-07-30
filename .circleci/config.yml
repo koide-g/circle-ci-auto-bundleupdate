@@ -82,8 +82,8 @@ jobs:
             bundle config --local path vendor/bundle
             circleci-bundle-update-pr
       - deploy:
-            name: Continuous bundle update
-            command: circleci-bundle-update-pr CircleCI koide-g+circleci@acaric.co.jp $CIRCLE_BRANCH
+          name: Continuous bundle update
+          command: circleci-bundle-update-pr CircleCI koide-g+circleci@acaric.co.jp $CIRCLE_BRANCH
 workflows:
   version: 2
   build:
@@ -94,8 +94,8 @@ workflows:
       - ci-bundle-update
     triggers:
       - schedule:
-          # cron: "0,15,30 * * * 1-5"  # debug
-          cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
+          cron: "0,15,30 * * * 1-5"  # debug
+          # cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
           filters:
             branches:
               only:
