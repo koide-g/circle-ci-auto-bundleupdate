@@ -96,7 +96,7 @@ workflows:
       only:
         - develop
         - feature/trigger-on-push-to-develop
-    
+
     # triggers:
     #   - schedule:
     #       # cron: "0,15,30 * * * 1-5"  # debug
