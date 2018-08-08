@@ -96,12 +96,3 @@ workflows:
             branches:
               only:
                 - develop
-    #   -ci-bundle-update
-    # triggers:
-    #   - schedule:
-    #       cron: "0,15,30 * * * 1-5"  # debug
-    #       # cron: "0 22 * * 0"  # 日曜日 UTC 22:00 に実行
-    #       filters:
-    #         branches:
-    #           only:
-    #             - develop # developだけで実行
