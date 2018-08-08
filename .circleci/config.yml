@@ -91,11 +91,11 @@ workflows:
       - build
   bundleupdate:
     jobs:
-      - ci-bundle-update
-    branches:
-      only:
-        - develop
-        - feature/trigger-on-push-to-develop
+      - ci-bundle-update:
+          branches:
+            only:
+              - develop
+              - feature/trigger-on-push-to-develop
 
     # triggers:
     #   - schedule:
