@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/koide-g/circle-ci-auto-bundleupdate/tree/develop.svg?style=svg)](https://circleci.com/gh/koide-g/circle-ci-auto-bundleupdate/tree/develop)
 
 
-trigger with cron schedule
+### trigger with cron schedule
 
 ```
 workflows:
@@ -24,7 +24,7 @@ workflows:
                 - develop # developだけで実行
 ```
 
-trigger only pushing develop branch
+### trigger only pushing develop branch
 
 ```
 workflows:
